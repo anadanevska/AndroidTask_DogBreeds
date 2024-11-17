@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import si.uni_lj.fri.pbd.dogbreedsapp.repository.DogBreedRepository
+import android.util.Log
 
 class DogBreedsViewModel(private val repository: DogBreedRepository) : ViewModel() {
 
@@ -25,14 +26,23 @@ class DogBreedsViewModel(private val repository: DogBreedRepository) : ViewModel
     private fun fetchBreeds() {
         viewModelScope.launch {
             _isLoading.value = true
-            _breeds.value = repository.getBreeds()
-            _isLoading.value = false
+            try {
+                _breeds.value = repository.getBreeds()
+            } catch (e: Exception) {
+                Log.e("ViewModel", "Error fetching breeds", e)
+            } finally {
+                _isLoading.value = false
+            }
         }
     }
 
     fun fetchRandomImage() {
         viewModelScope.launch {
-            _randomImage.value = repository.getBreedImage()
+            try {
+                _randomImage.value = repository.getBreedImage()
+            } catch (e: Exception) {
+                Log.e("ViewModel", "Error fetching random image", e)
+            }
         }
     }
 }
