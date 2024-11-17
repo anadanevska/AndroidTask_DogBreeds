@@ -1,44 +1,33 @@
-# Ignore Android Studio and IntelliJ-specific files
-*.iml
-.idea/
-.idea/caches/
-.idea/libraries/
-.idea/modules.xml
-.idea/workspace.xml
-.idea/navEditor.xml
-.idea/assetWizardSettings.xml
-
-# Ignore Gradle-related files
+# Gradle files
 .gradle/
 build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Log/OS Files
+*.log
+
+# Android Studio generated files and folders
 captures/
 .externalNativeBuild/
 .cxx/
-
-# Local configuration files
-local.properties
-
-# Ignore OS generated files
-.DS_Store
-Thumbs.db
-
-# Ignore log files
-*.log
-
-# Ignore cache and compiled files
-*.class
-*.dex
 *.apk
+output.json
+
+# IntelliJ
+*.iml
+.idea/
+misc.xml
+deploymentTargetDropDown.xml
+render.experimental.xml
+
+# Keystore files
+*.jks
 *.keystore
 
-# Kotlin-specific files
-*.kotlin_metadata
+# Google Services (e.g. APIs or Firebase)
+google-services.json
 
-# Ignore compiled binaries
-*.o
-*.out
-*.pyc
-
-# Other unnecessary files
-*.env
-*.bak
+# Android Profiling
+*.hprof
